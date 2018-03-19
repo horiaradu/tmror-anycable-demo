@@ -4,5 +4,6 @@ class HomeController < ApplicationController
 
   def trigger_broadcast
     MyChannel.broadcast_to('hello', type: 'message', payload: 'random payload')
+    head :ok
   end
 end
