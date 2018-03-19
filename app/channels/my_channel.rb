@@ -1,6 +1,8 @@
 class MyChannel < ApplicationCable::Channel
   def subscribed
     # current_user.appear
+    @x = 0
+
     stream_for 'hello'
   end
 
@@ -9,6 +11,9 @@ class MyChannel < ApplicationCable::Channel
   end
 
   def do_stuff(data)
+    @x += 1
+    puts @x
+
     puts data
   end
 end
