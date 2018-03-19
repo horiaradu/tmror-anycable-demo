@@ -10,9 +10,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Hello from "./hello-react";
+import Socket from "./socket";
 
 console.log("Hello World from Webpacker");
 
 document.addEventListener("DOMContentLoaded", () => {
+  Socket.connect();
   ReactDOM.render(<Hello />, document.getElementById("root"));
 });

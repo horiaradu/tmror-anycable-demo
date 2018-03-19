@@ -4,7 +4,20 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import Socket from "./socket";
 
-const Hello = props => <div>Hello React!</div>;
+export default class Hello extends React.Component {
+  sendMessage = () => {
+    Socket.perform("MyChannel", "do_stuff", { msg: "Here is a message" });
+  };
 
-export default Hello;
+  render() {
+    return (
+      <div>
+        <h1>Hello React!</h1>
+
+        <button onClick={this.sendMessage}>Send Message</button>
+      </div>
+    );
+  }
+}
