@@ -40,5 +40,5 @@ export default class Sockets {
 }
 
 function createConsumer() {
-  return actioncable.createConsumer("ws://localhost:3000/cable");
+  return actioncable.createConsumer("ws://localhost:28080/cable");
 }
