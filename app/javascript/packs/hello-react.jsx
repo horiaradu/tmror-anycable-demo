@@ -4,11 +4,16 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import axios from "axios";
 import Socket from "./socket";
 
 export default class Hello extends React.Component {
   sendMessage = () => {
     Socket.perform("MyChannel", "do_stuff", { msg: "Here is a message" });
+  };
+
+  triggerBroadcast = () => {
+    axios.post("http://localhost:3000/trigger-broadcast");
   };
 
   render() {
@@ -17,6 +22,8 @@ export default class Hello extends React.Component {
         <h1>Hello React!</h1>
 
         <button onClick={this.sendMessage}>Send Message</button>
+
+        <button onClick={this.triggerBroadcast}>Trigger Broadcast</button>
       </div>
     );
   }
